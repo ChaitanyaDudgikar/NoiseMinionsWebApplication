@@ -1,11 +1,15 @@
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <title>Simple Map</title>
         <meta name="viewport" content="initial-scale=1.0">
         <meta charset="utf-8">
+		
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+
         <style>
             /* Always set the map height explicitly to define the size of the div
              * element that contains the map. */
@@ -33,7 +37,7 @@
                 padding: 15px;
                 position: absolute;
                 left: 10%;
-                top: 80%;
+                top: 75%;
                 background: #FFFFFF;
                 border: 1px solid white;
                 border-radius: 4px;
@@ -41,14 +45,35 @@
                 box-shadow: black 5px 5px 10px;
             }
 
+	    .hidden-sliders
+		{
+                        
+			top: 90% !important;
+			left: 0% !important;
+			height: 15px;
+			overflow: hidden;
+			background: rgba(255,255,255,0.0) !important;
+			border: none !important;
+			box-shadow: none !important;
+			width: 4% !important;
+		}
+
             .slider-container > label
             {
+                
                 width: 100px;
                 display: inline-block;
             }
 
+	.slider-gap
+	{
+		height: 5px;
+		display: block;
+	}
+
             .slider-container
             {
+                
                 margin-top: 5px;
                 margin-bottom: 5px;
             }
@@ -57,7 +82,12 @@
     </head>
     <body>
         <div id="maincontainer">
-            <div id="map"></div>
+
+
+
+            <div id="map">
+
+            </div>
             <script>
                 var map;
                 var currentheatmap;
@@ -72,103 +102,7 @@
 
                     //let USGSOverlay={};
 
-//                    function USGSOverlay(bounds, image, map) {
-//
-//                        // Now initialize all properties.
-//                        this.bounds_ = bounds;
-//                        this.image_ = image;
-//                        this.map_ = map;
-//
-//                        // Define a property to hold the image's div. We'll
-//                        // actually create this div upon receipt of the onAdd()
-//                        // method so we'll leave it null for now.
-//                        this.div_ = null;
-//
-//                        // Explicitly call setMap on this overlay
-//                        this.setMap(map);
-//                    }
-//
-//                    USGSOverlay.prototype = new google.maps.OverlayView();
-//
-//                    USGSOverlay.prototype.onAdd = function () {
-//
-//                        var div = document.createElement('div');
-//                        div.style.border = 'none';
-//                        div.style.borderWidth = '0px';
-//                        div.style.position = 'absolute';
-//
-//                        // Create the img element and attach it to the div.
-//                        var img = document.createElement('img');
-//                        img.src = this.image_;
-//                        img.style.width = '100%';
-//                        img.style.height = '100%';
-//                        div.appendChild(img);
-//
-//                        this.div_ = div;
-//
-//                        // Add the element to the "overlayImage" pane.
-//                        var panes = this.getPanes();
-//                        panes.overlayImage.appendChild(this.div_);
-//                    };
-//
-//                    USGSOverlay.prototype.draw = function () {
-//
-//                        // We use the south-west and north-east
-//                        // coordinates of the overlay to peg it to the correct position and size.
-//                        // To do this, we need to retrieve the projection from the overlay.
-//                        var overlayProjection = this.getProjection();
-//
-//                        // Retrieve the south-west and north-east coordinates of this overlay
-//                        // in LatLngs and convert them to pixel coordinates.
-//                        // We'll use these coordinates to resize the div.
-//                        var sw = overlayProjection.fromLatLngToDivPixel(this.bounds_.getSouthWest());
-//                        var ne = overlayProjection.fromLatLngToDivPixel(this.bounds_.getNorthEast());
-//
-//                        // Resize the image's div to fit the indicated dimensions.
-//                        var div = this.div_;
-//                        div.style.left = sw.x + 'px';
-//                        div.style.top = ne.y + 'px';
-//                        div.style.width = (ne.x - sw.x) + 'px';
-//                        div.style.height = (sw.y - ne.y) + 'px';
-//                    };
-//
-//                    USGSOverlay.prototype.onRemove = function () {
-//                        this.div_.parentNode.removeChild(this.div_);
-//                    };
-//
-//                    // Set the visibility to 'hidden' or 'visible'.
-//                    USGSOverlay.prototype.hide = function () {
-//                        if (this.div_) {
-//                            // The visibility property must be a string enclosed in quotes.
-//                            this.div_.style.visibility = 'hidden';
-//                        }
-//                    };
-//
-//                    USGSOverlay.prototype.show = function () {
-//                        if (this.div_) {
-//                            this.div_.style.visibility = 'visible';
-//                        }
-//                    };
-//
-//                    USGSOverlay.prototype.toggle = function () {
-//                        if (this.div_) {
-//                            if (this.div_.style.visibility === 'hidden') {
-//                                this.show();
-//                            } else {
-//                                this.hide();
-//                            }
-//                        }
-//                    };
-//
-//                    USGSOverlay.prototype.toggleDOM = function () {
-//                        if (this.getMap()) {
-//                            // Note: setMap(null) calls OverlayView.onRemove()
-//                            this.setMap(null);
-//                        } else {
-//                            this.setMap(this.map_);
-//                        }
-//                    };
-//
+
 
                     var bounds = new google.maps.LatLngBounds(
                             new google.maps.LatLng(17.66, 75.90),
@@ -179,7 +113,7 @@
                     srcImage += 'examples/full/images/talkeetna.png';
 
 
-//                    overlay = new USGSOverlay(bounds, srcImage, map);
+
 
 
                     var solapur = new google.maps.LatLng(17.677383, 75.908670);
@@ -187,6 +121,8 @@
                     map = new google.maps.Map(document.getElementById('map'), {
                         center: solapur,
                         zoom: 13,
+                        minZoom:3,
+                        maxZoom:16
                         //  mapTypeId: 'satellite'
                     });
 
@@ -194,9 +130,9 @@
                         //                    console.log('clearingtimeout',lasttimeout);
                         clearTimeout(lastTimeout);
                         lastTimeout = window.setTimeout(function () {
-//                            console.log(sw.lat(), sw.lng(), ne.lat(), ne.lng());
+
                             onSliderChange();
-                        }, 2000);
+                        }, 500);
                         //                    console.log('timeout',lasttimeout);
                     });
 
@@ -209,35 +145,26 @@
                         currentheatmap.setMap(null);
                     }
 
-                    var heatMapData = [
-//                        {location: new google.maps.LatLng(17.61, 75.91), weight: 0.5},
-//                        new google.maps.LatLng(17.61, 75.91),
-//                        {location: new google.maps.LatLng(17.61, 75.91), weight: 2},
-//                        {location: new google.maps.LatLng(17.61, 75.93), weight: 3},
-//                        {location: new google.maps.LatLng(17.61, 75.92), weight: 2},
-//                        new google.maps.LatLng(17.62, 75.92),
-//                        {location: new google.maps.LatLng(17.62, 75.92), weight: 0.5},
-//
-//                        {location: new google.maps.LatLng(17.62, 75.93), weight: 3},
-//                        {location: new google.maps.LatLng(17.63, 75.92), weight: 2},
-//                        new google.maps.LatLng(17.62, 75.93),
-//                        {location: new google.maps.LatLng(17.62, 75.92), weight: 0.5},
-//                        new google.maps.LatLng(17.63, 75.93),
-//                        {location: new google.maps.LatLng(17.62, 75.94), weight: 2},
-//                        {location: new google.maps.LatLng(17.62, 75.95), weight: 3}
-                    ];
+		    var heatMapData =[  ];
+                   
+                    let minlevel = 30;
+                    let maxlevel = 60;
 
                     for (let i of JSON.parse(data))
                     {
-                        console.log("i", i);
-                        heatMapData.push({location: new google.maps.LatLng(i.latitudeNoise, i.longitudeNoise), weight: i.noiselevel / 100.0});
+                        console.log("i", i, (i.noiselevel - minlevel) / (maxlevel - minlevel));
+                        let weight = Math.pow(10, i.noiselevel / 20.0);
+                        console.log("weight", weight);
+                        heatMapData.push({location: new google.maps.LatLng(i.latitudeNoise, i.longitudeNoise), weight: weight});
                     }
 
+                    let zoom = map.getZoom();
+                    console.log("zoom", zoom);
 
                     var heatmap = new google.maps.visualization.HeatmapLayer({
                         data: heatMapData,
                         dissipating: true,
-                        radius: 10
+                        radius: Math.pow(1.3, zoom)
                     });
                     heatmap.setMap(map);
                     currentheatmap = heatmap;
@@ -261,13 +188,25 @@
                 let MONTHS = ['NA', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
                 let DATE = ['NA', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31']
                 let TIME = ['NA', '00', '01', '02', '03', '04', '05', '6', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23']
+
+                let month = 0;
+                let date = 0;
+                let day = 0;
+                let time = -1;
+
                 //DOW
                 $(function () {
                     $("#slider_dow").slider({
                         value: 0, min: 0, max: 7, step: 1,
                         slide: function (event, ui) {
                             $("#text_dow").val(DAYS[ui.value]);
+                            day = ui.value;
+                            console.log(day);
                             onSliderChange();
+                            $("#slider_date").slider('value', 0);
+                            $("#text_date").val(DATE[0]);
+                            date = 0;
+
                         }
                     });
                     $("#text_dow").val(DAYS[ $("#slider_dow").slider("value")]);
@@ -278,7 +217,14 @@
                         value: 0, min: 0, max: 31, step: 1,
                         slide: function (event, ui) {
                             $("#text_date").val(DATE[ui.value]);
+                            date = ui.value;
+                            console.log(date);
                             onSliderChange();
+                            $("#slider_dow").slider('value', 0);
+                            $("#text_dow").val(DAYS[0])
+                            day = 0;
+
+
                         }
                     });
                     $("#text_date").val(DATE[ $("#slider_date").slider("value")]);
@@ -289,7 +235,11 @@
                         value: 0, min: 0, max: 24, step: 1,
                         slide: function (event, ui) {
                             $("#text_time").val(TIME[ui.value]);
+
+                            time = ui.value - 1;
+                            console.log(time);
                             onSliderChange();
+
                         }
                     });
                     $("#text_time").val(TIME[ $("#slider_time").slider("value")]);
@@ -300,11 +250,15 @@
                         value: 0, min: 0, max: 12, step: 1,
                         slide: function (event, ui) {
                             $("#text_m").val(MONTHS[ui.value]);
+                            month = ui.value;
+                            console.log(month);
                             onSliderChange();
+
                         }
                     });
                     $("#text_m").val(MONTHS[ $("#slider_m").slider("value")]);
                 });
+               
                 $(function () {
 
                     function setSliderTicks(el) {
@@ -330,6 +284,18 @@
             </script>
 
             <style>
+                img.sticky {
+                position: -webkit-sticky;
+                position: sticky;
+                top: 10px;
+                left: 1233px;
+                width: 250px;
+              }
+                #button{
+                    float:right;
+
+
+                }
                 .slider
                 {
                     width: 50%;
@@ -353,8 +319,11 @@
 
 
             <body>
-
-                <div id="sliders">
+                
+		<div>		   
+                    <div id="sliders" class="collapse">
+                    <button type="button" class="btn btn-info" data-toggle2="collapse" data-target2="#sliders" onclick="toggleSliders();">Select</button>
+			<div class="slider-gap"></div> 		       
                     <div class="slider-container"> 
                         <label >Month</label>
                         <input type="text" id="text_m" readonly style="border:0; color:#f6931f; font-weight:bold;">
@@ -379,12 +348,24 @@
 
                         <div id="slider_time" class="slider"></div>
                     </div> 
+		   
                 </div>
         </div>
-
+<img class="sticky" src="/images/noiselevel1.jpg" >
         <script>
+
+	function toggleSliders(){
+		let sliders=$("#sliders");
+		console.log(sliders);
+		//sliders.css("height","20px");
+		//sliders[0].style.height="100px";
+
+		sliders.toggleClass("hidden-sliders");
+	}
+
             function onSliderChange()
             {
+                
                 clearTimeout(lastTimeout);
                 lastTimeout = window.setTimeout(function () {
 
@@ -392,18 +373,28 @@
                         console.log("Sending ajax request");
                         let bounds = map.getBounds();
                         console.log(bounds);
-                        let sw = bounds.getSouthWest();
-                        let ne = bounds.getNorthEast();
+                        
+                        let sw =bounds.getSouthWest();
+                        let ne =bounds.getNorthEast();
                         console.log(sw, ne);
-                        console.log(sw.lat(), sw.lng(), ne.lat(), ne.lng());
-                        $.ajax({url: "/noiseservice/query.htm?long_from=0&long_to=180&lat_from=0&lat_to=90", success: function (result) {
+                        console.log(sw.lat(),sw.lng(),ne.lat(),ne.lng());
+                        let url = "/query.htm?long_from="+sw.lng()+"&long_to="+ne.lng()+"&lat_from="+sw.lat()+"&lat_to="+ne.lat();
+                        if (month !== 0)
+                            url += "&month=" + month;
+                        if (time !== -1)
+                            url += "&time=" + time;
+                        if (day !== 0)
+                            url += "&dow=" + day;
+                        if (date !== 0)
+                            url += "&date=" + date;
+                        console.log("url", url);
+                        $.ajax({url: url, success: function (result) {
                                 console.log(result);
                                 showHeatMap(result);
                             }});
                     });
                 }, 2000);
             }
-        </script>
-
+        </script> 
     </body>
 </html>

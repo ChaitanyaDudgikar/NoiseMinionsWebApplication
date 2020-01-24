@@ -1,19 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package test.entities;
 
 /**
  *
  * @author arnav
  */
-public class RegisterForm {
-    
+public class RegisterForm
+{
+
     String username;
     String password;
-    String retypedpassword;
+    String spassword;
     String role;
 
     public String getRole()
@@ -25,31 +21,35 @@ public class RegisterForm {
     {
         this.role = role;
     }
-    
-    
 
-    public String getUsername() {
+    public String getUsername()
+    {
         return username;
     }
 
-    public void setUsername(String username) {
+    public void setUsername(String username)
+    {
         this.username = username;
     }
 
-    public String getPassword() {
+    public String getPassword()
+    {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(String password)
+    {
         this.password = password;
     }
 
-    public String getRetypedpassword() {
-        return retypedpassword;
+    public String getSpecialpassword()
+    {
+        return spassword;
     }
 
-    public void setRetypedpassword(String retypedpassword) {
-        this.retypedpassword = retypedpassword;
+    public void setSpecialpassword(String spassword)
+    {
+        this.spassword = spassword;
     }
-    
+
 }

@@ -56,7 +56,7 @@ public class registeruserController
             u.setRole(role);
             
             hibernateTemplate.save(u);            
-            return new ModelAndView("redirect:/userhome.htm");
+            return new ModelAndView("redirect:/index.htm");
         } else
         {
             ModelAndView mv = new ModelAndView("registeruser");
@@ -70,13 +70,13 @@ public class registeruserController
          
          
     } 
-    @RequestMapping("/getUsers")
-    public void getUsers()
-    {
-        int id = 1;
-
-        Users u = hibernateTemplate.get(Users.class, id);
-        List<Users> list = (List<Users>) (List<?>) hibernateTemplate.find("from Users u where u.username=? and u.password=? and u.role=?");
-        System.out.println(u.getUsername() + ":" + u.getPasswordhash());
-    }
+//    @RequestMapping("/getUsers")
+//    public void getUsers()
+//    {
+//        int id = 1;
+//
+//        Users u = hibernateTemplate.get(Users.class, id);
+//        List<Users> list = (List<Users>) (List<?>) hibernateTemplate.find("from Users u where u.username=? and u.password=? and u.role=?");
+//        System.out.println(u.getUsername() + ":" + u.getPasswordhash());
+//    }
 }

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
 import test.dbentities.Users;
 import test.entities.LoginForm;
 
@@ -24,6 +25,7 @@ import test.entities.LoginForm;
 @Controller
 public class LoginController
 {
+
     @Autowired
     HibernateTemplate hibernateTemplate;
 
@@ -32,7 +34,7 @@ public class LoginController
     {
         ModelAndView mv = new ModelAndView("login");
         final LoginForm loginForm = new LoginForm();
-        loginForm.setUsername("abcd");
+       // loginForm.setUsername("abcd");
         mv.addObject("loginform", loginForm);
 
         return mv;
@@ -46,21 +48,27 @@ public class LoginController
 
         System.out.println("username = " + username);
         System.out.println("password = " + password);
-        
-        List<Users> list=(List<Users>)(List<?>)hibernateTemplate.find("from Users u where u.username=? and u.passwordhash=?",username,password);
+
+        List<Users> list = (List<Users>) (List<?>) hibernateTemplate.find("from Users u where u.username=? and u.passwordhash=?", username, password);
 
         if (!list.isEmpty())
         {
-            session.setAttribute("user",list.get(0));
-            return new ModelAndView("redirect:/userhome.htm");
+            session.setAttribute("user", list.get(0));
+            return new ModelAndView("redirect:/map.htm");
         } else
         {
             ModelAndView mv = new ModelAndView("login");
             mv.addObject("loginform", form);
             mv.addObject("message", "Login failed");
-
+            session.removeAttribute("user");
             return mv;
         }
     }
 
+    @RequestMapping("/logout")
+    public String logout(HttpSession session)
+    {
+        session.removeAttribute("user");
+        return "redirect:/index";
+    }
 }

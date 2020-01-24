@@ -42,22 +42,22 @@ public class registerController
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public ModelAndView register(@ModelAttribute RegisterForm form)
     {
-        String retypedpassword = form.getRetypedpassword();
+        String specialpassword = form.getSpecialpassword();
         String username = form.getUsername();
         String password = form.getPassword();
-
+        String spassword = "MakeInIndia";
 //        System.out.println("username = " + username);
 //        System.out.println("password = " + password);
 //        System.out.println("Retyped password = " + retypedpassword);
-        if (retypedpassword.equals(password))
+        if (specialpassword.equals(spassword))
         {
-            return new ModelAndView("redirect:/userhome.htm");
+            return new ModelAndView("redirect:/login.htm");
         } else
         {
             ModelAndView mv = new ModelAndView("register");
             mv.addObject("registerform", form);
             //mv.addObject("message", "Login failed");
-            mv.addObject("message1", "please enter same password");
+            mv.addObject("message1", "please enter valid special password");
 
             return mv;
         }

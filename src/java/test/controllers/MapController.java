@@ -5,8 +5,10 @@
  */
 package test.controllers;
 
+import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import test.dbentities.Users;
 
 /**
  *
@@ -15,9 +17,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MapController
 {
-    @RequestMapping("view")
-    public String view()
+
+    @RequestMapping("/map")
+    public String view(HttpSession session)
     {
-        return "map";
+        Users user = (Users) session.getAttribute("user");
+        if (user == null)
+        {
+            return "redirect:/login.htm";
+        } else
+        {
+            return "map";
+        }
     }
 }
