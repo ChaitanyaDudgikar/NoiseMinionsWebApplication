@@ -67,17 +67,17 @@
                                             <button class="login100-form-btn" >
                                                     
 							Login
+                                                        
 						</button>
+					</div>
+                                        <div class="container-login100-form-btn">            
+						<br/><br/><br/><br/><br/><br/>
+						
 					</div>
 
 					
 
-					<div class="text-center p-t-136">
-						<a class="txt2" href="/registeruser.htm">
-							Create your Account
-							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-						</a>
-					</div>
+					
 				</form:form>
 			</div>
 		</div>

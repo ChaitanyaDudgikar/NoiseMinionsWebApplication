@@ -53,8 +53,7 @@ public class Samples implements Serializable
     private Double latitude;
     @Column(name = "noiselevel")
     private Double noiselevel;
-    @Column(name = "isprocessed")
-    private Short isprocessed;
+    
     @OneToMany(mappedBy = "sampleid")
     private List<Qsamples> qsamplesList;
 
@@ -126,17 +125,6 @@ public class Samples implements Serializable
     {
         this.noiselevel = noiselevel;
     }
-
-    public Short getIsprocessed()
-    {
-        return isprocessed;
-    }
-
-    public void setIsprocessed(Short isprocessed)
-    {
-        this.isprocessed = isprocessed;
-    }
-
     public List<Qsamples> getQsamplesList()
     {
         return qsamplesList;

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Simple Map</title>
+        <title>Heatmap-Noise Minions</title>
         <meta name="viewport" content="initial-scale=1.0">
         <meta charset="utf-8">
-		
-	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 
 
@@ -37,7 +37,7 @@
                 padding: 15px;
                 position: absolute;
                 left: 10%;
-                top: 75%;
+                top: 62%;
                 background: #FFFFFF;
                 border: 1px solid white;
                 border-radius: 4px;
@@ -45,35 +45,35 @@
                 box-shadow: black 5px 5px 10px;
             }
 
-	    .hidden-sliders
-		{
-                        
-			top: 90% !important;
-			left: 0% !important;
-			height: 15px;
-			overflow: hidden;
-			background: rgba(255,255,255,0.0) !important;
-			border: none !important;
-			box-shadow: none !important;
-			width: 4% !important;
-		}
+            .hidden-sliders
+            {
+
+                top: 89% !important;
+                left: 0% !important;
+                height: 26px;
+                overflow: hidden;
+                background: rgba(255,255,255,0.0) !important;
+                border: none !important;
+                box-shadow: none !important;
+                width: 6% !important;
+            }
 
             .slider-container > label
             {
-                
+
                 width: 100px;
                 display: inline-block;
             }
 
-	.slider-gap
-	{
-		height: 5px;
-		display: block;
-	}
+            .slider-gap
+            {
+                height: 5px;
+                display: block;
+            }
 
             .slider-container
             {
-                
+
                 margin-top: 5px;
                 margin-bottom: 5px;
             }
@@ -93,6 +93,8 @@
                 var currentheatmap;
                 var overlay;
                 var lastTimeout;
+                var querymode = 'pattern';
+
                 function initMap() {
                     map = new google.maps.Map(document.getElementById('map'), {
                         center: {lat: 17.60, lng: 75.90},
@@ -121,9 +123,9 @@
                     map = new google.maps.Map(document.getElementById('map'), {
                         center: solapur,
                         zoom: 13,
-                        minZoom:3,
-                        maxZoom:16
-                        //  mapTypeId: 'satellite'
+                        minZoom: 3,
+                        maxZoom: 19
+                                //  mapTypeId: 'satellite'
                     });
 
                     google.maps.event.addListener(map, 'bounds_changed', function () {
@@ -145,11 +147,12 @@
                         currentheatmap.setMap(null);
                     }
 
-		    var heatMapData =[  ];
-                   
+                    var heatMapData = [];
+
                     let minlevel = 30;
                     let maxlevel = 60;
-
+                   // heatMapData.push({location: new google.maps.LatLng(18.18, 77.77), weight: 0});
+                    //heatMapData.push({location: new google.maps.LatLng(18.20, 77.80), weight: 200});
                     for (let i of JSON.parse(data))
                     {
                         console.log("i", i, (i.noiselevel - minlevel) / (maxlevel - minlevel));
@@ -186,27 +189,32 @@
 
                 let DAYS = ['NA', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
                 let MONTHS = ['NA', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-                let DATE = ['NA', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31']
-                let TIME = ['NA', '00', '01', '02', '03', '04', '05', '6', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23']
-
+                let DATE = ['NA', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'];
+                let TIME = ['NA', '00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'];
+               
                 let month = 0;
                 let date = 0;
                 let day = 0;
                 let time = -1;
-
+                let month2 = 1;
+                let date2 = 1;
+                let time2 = 0;
+                let year = 2019;
                 //DOW
                 $(function () {
+
+                    $("#tabs").tabs();
+
                     $("#slider_dow").slider({
                         value: 0, min: 0, max: 7, step: 1,
                         slide: function (event, ui) {
                             $("#text_dow").val(DAYS[ui.value]);
                             day = ui.value;
-                            console.log(day);
+
                             onSliderChange();
                             $("#slider_date").slider('value', 0);
                             $("#text_date").val(DATE[0]);
                             date = 0;
-
                         }
                     });
                     $("#text_dow").val(DAYS[ $("#slider_dow").slider("value")]);
@@ -218,7 +226,7 @@
                         slide: function (event, ui) {
                             $("#text_date").val(DATE[ui.value]);
                             date = ui.value;
-                            console.log(date);
+
                             onSliderChange();
                             $("#slider_dow").slider('value', 0);
                             $("#text_dow").val(DAYS[0])
@@ -237,7 +245,7 @@
                             $("#text_time").val(TIME[ui.value]);
 
                             time = ui.value - 1;
-                            console.log(time);
+
                             onSliderChange();
 
                         }
@@ -251,14 +259,65 @@
                         slide: function (event, ui) {
                             $("#text_m").val(MONTHS[ui.value]);
                             month = ui.value;
-                            console.log(month);
+
                             onSliderChange();
 
                         }
                     });
                     $("#text_m").val(MONTHS[ $("#slider_m").slider("value")]);
                 });
-               
+                /////////////////////////////////////////// 
+                $(function () {
+                    $("#slider2_y").slider({
+                        value: 2019, min: 2019, max: 2030, step: 1,
+                        slide: function (event, ui) {
+                            $("#text2_y").val(ui.value);
+                            year = ui.value;
+
+                            onSliderChange();
+
+                        }
+                    });
+                    $("#text2_y").val($("#slider2_y").slider("value"));
+
+                    $("#slider2_m").slider({
+                        value: 0, min: 1, max: 12, step: 1,
+                        slide: function (event, ui) {
+                            $("#text2_m").val(MONTHS[ui.value]);
+                            month2 = ui.value;
+
+                            onSliderChange();
+
+                        }
+                    });
+                    $("#text2_m").val(MONTHS[ $("#slider2_m").slider("value")]);
+
+                    $("#slider2_date").slider({
+                        value: 0, min: 1, max: 31, step: 1,
+                        slide: function (event, ui) {
+                            $("#text2_date").val(DATE[ui.value]);
+                            date2 = ui.value;
+
+                            onSliderChange();
+
+                        }
+                    });
+                    $("#text2_date").val(DATE[ $("#slider2_date").slider("value")]);
+
+                    $("#slider2_time").slider({
+                        value: 0, min: 1, max: 24, step: 1,
+                        slide: function (event, ui) {
+                            $("#text2_time").val(TIME[ui.value]);
+                            time2 = ui.value - 1;
+
+                            onSliderChange();
+
+                        }
+                    });
+                    $("#text2_time").val(TIME[ $("#slider2_time").slider("value")]);
+
+                });
+
                 $(function () {
 
                     function setSliderTicks(el) {
@@ -285,20 +344,20 @@
 
             <style>
                 img.sticky {
-                position: -webkit-sticky;
-                position: sticky;
-                top: 10px;
-                left: 1233px;
-                width: 250px;
-              }
+                    position: -webkit-sticky;
+                    position: sticky;
+                    top: 10px;
+                    left: 1233px;
+                    width: 250px;
+                }
                 #button{
                     float:right;
-
+                    
 
                 }
                 .slider
                 {
-                    width: 50%;
+                    width: 80%;
                     display: inline-block;
                 }
 
@@ -315,86 +374,148 @@
                     position:absolute;
                     top:0px;
                 }
+                .btn-info{
+                   
+                    background-color: #007FFF;
+                    border: 1px solid white;
+                    border-radius: 4px;
+                    box-shadow: black 3px 3px 6px;
+                    color: white;
+                    padding: 8px 22px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 16px;
+                    cursor: pointer;
+              }
             </style>
 
 
-            <body>
-                
-		<div>		   
+            <body>                
+                <div>		   
                     <div id="sliders" class="collapse">
-                    <button type="button" class="btn btn-info" data-toggle2="collapse" data-target2="#sliders" onclick="toggleSliders();">Select</button>
-			<div class="slider-gap"></div> 		       
-                    <div class="slider-container"> 
-                        <label >Month</label>
-                        <input type="text" id="text_m" readonly style="border:0; color:#f6931f; font-weight:bold;">
 
-                        <div id="slider_m" class="slider"></div>
-                    </div> 
-                    <div class="slider-container"> 
-                        <label >Date</label>
-                        <input type="text" id="text_date" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                        <button type="button" class="btn btn-info" data-toggle2="collapse" data-target2="#sliders" onclick="toggleSliders();">Select</button>
+                        <div class="slider-gap"></div>
+                        <div id="tabs">
+                            <ul>
+                                <li><a href="#tab1" onclick="querymode = 'pattern'; onSliderChange()">Pattern</a></li>
+                                <li><a href="#tab2" onclick="querymode = 'history'; onSliderChange()">History</a></li>
+                            </ul>
+                            <div id="tab1">
+                                <div class="slider-container"> 
+                                    <label >Month</label>
+                                    <input type="text" id="text_m" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                    <div id="slider_m" class="slider"></div>
+                                </div> 
+                                <div class="slider-container"> 
+                                    <label >Date</label>
+                                    <input type="text" id="text_date" readonly style="border:0; color:#f6931f; font-weight:bold;">
 
-                        <div id="slider_date" class="slider"></div>
-                    </div> 
-                    <div class="slider-container"> 
-                        <label >Day</label>
-                        <input type="text" id="text_dow" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                    <div id="slider_date" class="slider"></div>
+                                </div> 
+                                <div class="slider-container"> 
+                                    <label >Day</label>
+                                    <input type="text" id="text_dow" readonly style="border:0; color:#f6931f; font-weight:bold;">
 
-                        <div id="slider_dow" class="slider"></div>
-                    </div> 
-                    <div class="slider-container"> 
-                        <label >Time</label>
-                        <input type="text" id="text_time" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                    <div id="slider_dow" class="slider"></div>
+                                </div> 
+                                <div class="slider-container"> 
+                                    <label >Time</label>
+                                    <input type="text" id="text_time" readonly style="border:0; color:#f6931f; font-weight:bold;">
 
-                        <div id="slider_time" class="slider"></div>
-                    </div> 
-		   
+                                    <div id="slider_time" class="slider"></div>
+                                </div> 
+                            </div>
+                            <div id="tab2">
+                                <div class="slider-container"> 
+                                    <label >Year</label>
+                                    <input type="text" id="text2_y" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                    <div id="slider2_y" class="slider"></div>
+                                </div> 
+                                <div class="slider-container"> 
+                                    <label >Month</label>
+                                    <input type="text" id="text2_m" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                    <div id="slider2_m" class="slider"></div>
+                                </div> 
+                                <div class="slider-container"> 
+                                    <label >Date</label>
+                                    <input type="text" id="text2_date" readonly style="border:0; color:#f6931f; font-weight:bold;">
+
+                                    <div id="slider2_date" class="slider"></div>
+                                </div> 
+                                <div class="slider-container"> 
+                                    <label >Time</label>
+                                    <input type="text" id="text2_time" readonly style="border:0; color:#f6931f; font-weight:bold;">
+
+                                    <div id="slider2_time" class="slider"></div>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
                 </div>
-        </div>
-<img class="sticky" src="/images/noiselevel1.jpg" >
-        <script>
+                <img class="sticky" src="/images/noiselevel1.jpg" >
+                <script>
 
-	function toggleSliders(){
-		let sliders=$("#sliders");
-		console.log(sliders);
-		//sliders.css("height","20px");
-		//sliders[0].style.height="100px";
+                    function toggleSliders() {
+                        let sliders = $("#sliders");
+                        console.log(sliders);
+                        //sliders.css("height","20px");
+                        //sliders[0].style.height="100px";
+                        sliders.toggleClass("hidden-sliders");
+                    }
 
-		sliders.toggleClass("hidden-sliders");
-	}
+                    function onSliderChange()
+                    {
 
-            function onSliderChange()
-            {
-                
-                clearTimeout(lastTimeout);
-                lastTimeout = window.setTimeout(function () {
+                        clearTimeout(lastTimeout);
+                        lastTimeout = window.setTimeout(function () {
 
-                    $(function () {
-                        console.log("Sending ajax request");
-                        let bounds = map.getBounds();
-                        console.log(bounds);
-                        
-                        let sw =bounds.getSouthWest();
-                        let ne =bounds.getNorthEast();
-                        console.log(sw, ne);
-                        console.log(sw.lat(),sw.lng(),ne.lat(),ne.lng());
-                        let url = "/query.htm?long_from="+sw.lng()+"&long_to="+ne.lng()+"&lat_from="+sw.lat()+"&lat_to="+ne.lat();
-                        if (month !== 0)
-                            url += "&month=" + month;
-                        if (time !== -1)
-                            url += "&time=" + time;
-                        if (day !== 0)
-                            url += "&dow=" + day;
-                        if (date !== 0)
-                            url += "&date=" + date;
-                        console.log("url", url);
-                        $.ajax({url: url, success: function (result) {
-                                console.log(result);
-                                showHeatMap(result);
-                            }});
-                    });
-                }, 2000);
-            }
-        </script> 
-    </body>
+                            $(function () {
+                                console.log("Sending ajax request");
+                                let bounds = map.getBounds();
+                                console.log(bounds);
+
+                                let sw = bounds.getSouthWest();
+                                let ne = bounds.getNorthEast();
+                                console.log(sw, ne);
+                                console.log(sw.lat(), sw.lng(), ne.lat(), ne.lng());
+                                console.log(querymode);
+                                if (querymode === 'pattern')
+                                {
+                                    let url = "/query.htm?long_from=" + sw.lng() + "&long_to=" + ne.lng() + "&lat_from=" + sw.lat() + "&lat_to=" + ne.lat();
+                                    if (month !== 0)
+                                        url += "&month=" + month;
+                                    if (time !== -1)
+                                        url += "&time=" + time;
+                                    if (day !== 0)
+                                        url += "&dow=" + day;
+                                    if (date !== 0)
+                                        url += "&date=" + date;
+                                    console.log("url", url);
+                                    $.ajax({url: url, success: function (result) {
+                                            console.log(result);
+                                            showHeatMap(result);
+                                        }});
+                                } else if (querymode === 'history')
+                                {
+                                    let url = "/query.htm?long_from=" + sw.lng() + "&long_to=" + ne.lng() + "&lat_from=" + sw.lat() + "&lat_to=" + ne.lat();
+
+                                    url += "&year=" + year;
+
+                                    url += "&month=" + month2;
+
+                                    url += "&time=" + time2;
+                                    url += "&date=" + date2;
+                                    console.log("url", url);
+                                    $.ajax({url: url, success: function (result) {
+                                            console.log(result);
+                                            showHeatMap(result);
+                                        }});
+                                }
+                            });
+                        }, 2000);
+                    }
+                </script> 
+            </body>
 </html>

@@ -57,6 +57,7 @@ public class LoginController
             return new ModelAndView("redirect:/map.htm");
         } else
         {
+            
             ModelAndView mv = new ModelAndView("login");
             mv.addObject("loginform", form);
             mv.addObject("message", "Login failed");

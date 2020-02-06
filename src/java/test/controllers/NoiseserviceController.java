@@ -46,7 +46,7 @@ public class NoiseserviceController
 
         s.setDeviceid(command.getDeviceid());
         s.setDatetime(new Date());
-        s.setIsprocessed((short) 0);
+       
         s.setLatitude(command.getLatitude());
         s.setLongitude(command.getLongitude());
         s.setNoiselevel(command.getNoiselevel());
@@ -110,23 +110,24 @@ public class NoiseserviceController
         {
             Calendar c = Calendar.getInstance();
             c.set(Calendar.YEAR, Integer.parseInt(year));
-            c.set(Calendar.MONTH, Integer.parseInt(month));
+            c.set(Calendar.MONTH, Integer.parseInt(month)-1);
             c.set(Calendar.DAY_OF_MONTH, Integer.parseInt(date));
             c.set(Calendar.HOUR, 0);
             c.set(Calendar.MINUTE, 0);
             c.set(Calendar.SECOND, 0);
 
             java.sql.Date dbdate = new java.sql.Date(c.getTimeInMillis());
+            System.out.println("dbdate: "+dbdate);
 
             //query noisebydate
-            List<Noisebydate> list = (List<Noisebydate>) (List<?>) hibernateTemplate.find("from Noisebydate d where"
+            List<Noisebydate> list = (List<Noisebydate>) (List<?>) hibernateTemplate.find("from Noisebydate d where "
                     + "d.longitudeNoise between ? and ? "
                     + "and d.latitudeNoise between ? and ? "
                     + "and d.date=? "
                     + "and d.qtime=?",
                     long_from, long_to,
                     lat_from, lat_to,
-                    dbdate, time);
+                    dbdate, new java.sql.Time(Integer.parseInt(time), 0, 0));
 
             return JSON.std.asString(list);
         }
