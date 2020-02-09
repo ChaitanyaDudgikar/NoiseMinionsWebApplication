@@ -167,7 +167,7 @@
                     var heatmap = new google.maps.visualization.HeatmapLayer({
                         data: heatMapData,
                         dissipating: true,
-                        radius: Math.pow(1.250, zoom)
+                        radius: Math.pow(1.225, zoom)
                     });
                     heatmap.setMap(map);
                     currentheatmap = heatmap;
