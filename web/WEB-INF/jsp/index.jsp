@@ -128,7 +128,7 @@
 					<div class="flex flex-2">
 						<article>
 							<div class="image fit">
-								<img src="/images/pic01.jpg" alt="Pic 01" />
+								<img src="/images/pic01.png" alt="Pic 01" />
 							</div>
 							<header>
 								<h3><center>Application Home</center></h3>
@@ -140,7 +140,7 @@
 						</article>
 						<article>
 							<div class="image fit">
-								<img src="/images/pic02.jpg" alt="Pic 02" />
+								<img src="/images/pic02.png" alt="Pic 02" />
 							</div>
 							<header>
 								<h3><center>Heatmap</center></h3>

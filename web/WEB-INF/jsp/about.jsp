@@ -48,7 +48,7 @@ The proposed system includes development of an android application which runs in
 The Google map API for JavaScript is used for google map. The UI design contains the different sliders of date, month, weekday and time. The  user can select knob of any slider or combination of knobs of one or more sliders. The knobs of sliders of weekday and date can’t be selected at a time because it can create conflict. When knob of any slider is not selected then the heatmap without any constraints of month, weekday, date and time is generated.And when the knobs of the sliders are selected then respective patterns are displayed.</p>
 						<p>The Noise Minions help us to identify the silent zones and the noise zones on the map. The accuracy of the map is only dependent upon the number of users of this application. More is the number of users of this application, more is the accuracy in a particular zone and vice versa. More are the number of active smartphones, more is the accuracy of the map. The resultant heatmap is as follows.</p>
 						
-								<img src="/images/output.PNG" alt="Pic 01" />
+								<img src="/images/output.JPG" alt="OUTPUT" />
 							
 				</div>
 			</section>
