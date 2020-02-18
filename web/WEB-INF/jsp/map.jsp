@@ -156,7 +156,7 @@
                     for (let i of JSON.parse(data))
                     {
                         console.log("i", i, (i.noiselevel - minlevel) / (maxlevel - minlevel));
-                        let weight = Math.pow(10, i.noiselevel / 20.0);
+                        let weight = i.noiselevel;//Math.pow(10, i.noiselevel / 20.0);
                         console.log("weight", weight);
                         heatMapData.push({location: new google.maps.LatLng(i.latitudeNoise, i.longitudeNoise), weight: weight});
                     }
