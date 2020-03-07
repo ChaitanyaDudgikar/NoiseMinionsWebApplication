@@ -87,7 +87,7 @@ public class NoiseserviceController
         System.out.println("dbtime = " + time);
         if (year == null)
         {
-            //query noisepattern
+            //query noisepattern (pattern)
             List<Noisepattern> list = (List<Noisepattern>) (List<?>) hibernateTemplate.find("select p from Noisepattern p where "
                     + "p.longitudeNoise between ? and ? "
                     + "and p.latitudeNoise between ? and ? "
@@ -119,7 +119,7 @@ public class NoiseserviceController
             java.sql.Date dbdate = new java.sql.Date(c.getTimeInMillis());
             System.out.println("dbdate: "+dbdate);
 
-            //query noisebydate
+            //query noisebydate (history)
             List<Noisebydate> list = (List<Noisebydate>) (List<?>) hibernateTemplate.find("from Noisebydate d where "
                     + "d.longitudeNoise between ? and ? "
                     + "and d.latitudeNoise between ? and ? "
