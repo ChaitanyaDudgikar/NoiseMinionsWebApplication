@@ -57,18 +57,30 @@ public class NoiseserviceController
             @RequestParam(value = "time", required = false) String time,
             @RequestParam(value = "month", required = false) String month,
             @RequestParam(value = "year", required = false) String year,
-            @RequestParam(value = "status", required = false) int status,
+            @RequestParam(value = "status", required = false) Integer status,
             @RequestParam(value = "pattern_time", required = false) String pattern_time,
             @RequestParam(value = "dateTime_from", required = false) String dateTime_from,
             @RequestParam(value = "dateTime_to", required = false) String dateTime_to
     ) throws ParseException, IOException
     {
 
-        if(time==null){time="-";}
-        if(date==null){date="-";}
-        if(dow==null){dow="-";}
-        if(month==null){month="-";}
-       // SimpleDateFormat sdf = new SimpleDateFormat("H:m");
+        if (time == null)
+        {
+            time = "-";
+        }
+        if (date == null)
+        {
+            date = "-";
+        }
+        if (dow == null)
+        {
+            dow = "-";
+        }
+        if (month == null)
+        {
+            month = "-";
+        }
+        // SimpleDateFormat sdf = new SimpleDateFormat("H:m");
         //final Time dbtime = new java.sql.Time(sdf.parse(time).getTime());
         System.out.println("lat_from = " + lat_from);
         System.out.println("lat_to = " + lat_to);
@@ -81,10 +93,10 @@ public class NoiseserviceController
         System.out.println("dbtime = " + time);
         //String t1 =String.valueOf(((Integer.parseInt(pattern_time))+24-6)%24);
         //String t2 = String.valueOf(((Integer.parseInt(pattern_time))+6)%24);
-        if(status == 1)
+        if (status != null && status == 1)
         {
-           // SimpleDateFormat formatter=new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-           // Date date_time_f=formatter.parse(date_time_from);
+            // SimpleDateFormat formatter=new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+            // Date date_time_f=formatter.parse(date_time_from);
             //Date date_time_t=formatter.parse(date_time_to);
             //System.out.println("datefrom"+date_time_f);
             //System.out.println("dateto"+date_time_t);
@@ -96,10 +108,9 @@ public class NoiseserviceController
                     lat_from, lat_to,
                     dateTime_from, dateTime_to
             );
-             return JSON.std.asString(list);
-        }
-               
-        if(status == 2){
+            return JSON.std.asString(list);
+        } else if (status != null && status == 2)
+        {
             List<Noisepattern> listp = (List<Noisepattern>) (List<?>) hibernateTemplate.find("select p from Noisepattern p where "
                     + "p.longitudeNoise between ? and ? "
                     + "and p.latitudeNoise between ? and ? "
@@ -111,61 +122,57 @@ public class NoiseserviceController
                     lat_from, lat_to,
                     date,
                     month,
-                   pattern_time,
+                    pattern_time,
                     dow
             );
             return JSON.std.asString(listp);
-            }
-           
-       
-        else
-        {
-        if (year == null)
-        {
-            //query noisepattern
-            List<Noisepattern> list = (List<Noisepattern>) (List<?>) hibernateTemplate.find("select p from Noisepattern p where "
-                    + "p.longitudeNoise between ? and ? "
-                    + "and p.latitudeNoise between ? and ? "
-                    + "and p.day=? "
-                    + "and p.month=?"
-                    + "and p.qtime=?"
-                    + "and p.weekday=?",
-                    long_from, long_to,
-                    lat_from, lat_to,
-                    date,
-                    month,
-                    time,
-                    dow
-            );
-
-//            List<Noisepattern>list2=(List<Noisepattern>)(List<?>)hibernateTemplate.find("select pfrom Noisepattern p");
-
-            return JSON.std.asString(list);
         } else
         {
-            Calendar c = Calendar.getInstance();
-            c.set(Calendar.YEAR, Integer.parseInt(year));
-            c.set(Calendar.MONTH, Integer.parseInt(month)-1);
-            c.set(Calendar.DAY_OF_MONTH, Integer.parseInt(date));
-            c.set(Calendar.HOUR, 0);
-            c.set(Calendar.MINUTE, 0);
-            c.set(Calendar.SECOND, 0);
+            if (year == null)
+            {
+                //query noisepattern
+                List<Noisepattern> list = (List<Noisepattern>) (List<?>) hibernateTemplate.find("select p from Noisepattern p where "
+                        + "p.longitudeNoise between ? and ? "
+                        + "and p.latitudeNoise between ? and ? "
+                        + "and p.day=? "
+                        + "and p.month=?"
+                        + "and p.qtime=?"
+                        + "and p.weekday=?",
+                        long_from, long_to,
+                        lat_from, lat_to,
+                        date,
+                        month,
+                        time,
+                        dow
+                );
 
-            java.sql.Date dbdate = new java.sql.Date(c.getTimeInMillis());
-            System.out.println("dbdate: "+dbdate);
+//            List<Noisepattern>list2=(List<Noisepattern>)(List<?>)hibernateTemplate.find("select pfrom Noisepattern p");
+                return JSON.std.asString(list);
+            } else
+            {
+                Calendar c = Calendar.getInstance();
+                c.set(Calendar.YEAR, Integer.parseInt(year));
+                c.set(Calendar.MONTH, Integer.parseInt(month) - 1);
+                c.set(Calendar.DAY_OF_MONTH, Integer.parseInt(date));
+                c.set(Calendar.HOUR, 0);
+                c.set(Calendar.MINUTE, 0);
+                c.set(Calendar.SECOND, 0);
 
-            //query noisebydate
-            List<Noisebydate> list = (List<Noisebydate>) (List<?>) hibernateTemplate.find("from Noisebydate d where "
-                    + "d.longitudeNoise between ? and ? "
-                    + "and d.latitudeNoise between ? and ? "
-                    + "and d.date=? "
-                    + "and d.qtime=?",
-                    long_from, long_to,
-                    lat_from, lat_to,
-                    dbdate, new java.sql.Time(Integer.parseInt(time), 0, 0));
+                java.sql.Date dbdate = new java.sql.Date(c.getTimeInMillis());
+                System.out.println("dbdate: " + dbdate);
 
-            return JSON.std.asString(list);
-        }
+                //query noisebydate
+                List<Noisebydate> list = (List<Noisebydate>) (List<?>) hibernateTemplate.find("from Noisebydate d where "
+                        + "d.longitudeNoise between ? and ? "
+                        + "and d.latitudeNoise between ? and ? "
+                        + "and d.date=? "
+                        + "and d.qtime=?",
+                        long_from, long_to,
+                        lat_from, lat_to,
+                        dbdate, new java.sql.Time(Integer.parseInt(time), 0, 0));
+
+                return JSON.std.asString(list);
+            }
         }
     }
 

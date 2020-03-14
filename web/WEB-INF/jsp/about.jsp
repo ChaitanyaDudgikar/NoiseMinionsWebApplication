@@ -25,6 +25,7 @@
 						<a href="/about.html">About</a>
 						<a href="/login2.html">Register User</a>
                                                 <a href="/login.html">Map</a>
+                                                <a href="/noiseinfo.html">Live Data</a>
 					</nav>
 					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 				</div>
