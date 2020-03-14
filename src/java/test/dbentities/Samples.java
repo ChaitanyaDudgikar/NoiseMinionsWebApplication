@@ -21,6 +21,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.metamodel.SingularAttribute;
+import org.eclipse.persistence.jpa.jpql.parser.DateTime;
 
 /**
  *
@@ -43,7 +44,7 @@ public class Samples implements Serializable
     private Integer sampleid;
     @Column(name = "deviceid")
     private String deviceid;
-    @Column(name = "datetime")
+    @Column(name = "datetime" ,columnDefinition="DATETIME")
     @Temporal(TemporalType.TIMESTAMP)
     private Date datetime;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
@@ -53,9 +54,9 @@ public class Samples implements Serializable
     private Double latitude;
     @Column(name = "noiselevel")
     private Double noiselevel;
-    
-    @OneToMany(mappedBy = "sampleid")
-    private List<Qsamples> qsamplesList;
+   
+   // @OneToMany(mappedBy = "sampleid")
+   // private List<Qsamples> qsamplesList;
 
     public Samples()
     {
@@ -125,15 +126,15 @@ public class Samples implements Serializable
     {
         this.noiselevel = noiselevel;
     }
-    public List<Qsamples> getQsamplesList()
-    {
-        return qsamplesList;
-    }
-
-    public void setQsamplesList(List<Qsamples> qsamplesList)
-    {
-        this.qsamplesList = qsamplesList;
-    }
+//    public List<Qsamples> getQsamplesList()
+//    {
+//        return qsamplesList;
+//    }
+//
+//    public void setQsamplesList(List<Qsamples> qsamplesList)
+//    {
+//        this.qsamplesList = qsamplesList;
+//    }
 
     @Override
     public int hashCode()
@@ -169,5 +170,5 @@ public class Samples implements Serializable
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+   
 }

@@ -7,52 +7,35 @@
             <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/images/banner.jpg</file>
             <file>jar:file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/lib/spring-framework400/spring-web-4.0.1.RELEASE.jar!/META-INF/web-fragment.xml</file>
             <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/src/java/test/dbentities/UploadCommand.java</file>
-            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/WEB-INF/jsp/registeruser.jsp</file>
-            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/src/java/test/controllers/AboutController.java</file>
-            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/WEB-INF/jsp/about.jsp</file>
-            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/src/java/test/dbentities/Noisepattern.java</file>
-            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/WEB-INF/jsp/login.jsp</file>
-            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/src/java/test/controllers/registerController.java</file>
-            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/images/img03.png</file>
-            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/src/java/test/dbentities/Noisebydate.java</file>
-            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/nbproject/build-impl.xml</file>
-            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/src/java/test/entities/RegisterForm.java</file>
-            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/css/util.css</file>
-            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/src/java/test/controllers/LoginController.java</file>
-            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/src/java/test/controllers/MapController.java</file>
-            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/images/noiselevel1.jpg</file>
-            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/src/java/test/controllers/HomeController.java</file>
-            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/META-INF/context.xml</file>
-            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/WEB-INF/jsp/index.jsp</file>
-            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/src/java/test/controllers/NoiseserviceController.java</file>
             <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/images/img-02.png</file>
-            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/src/java/test/controllers/registeruserForm.java</file>
             <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/WEB-INF/jsp/xyz.jsp</file>
-            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/WEB-INF/jsp/abc.jsp</file>
             <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/src/java/test/dbentities/Samples.java</file>
+            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/src/java/test/dbentities/Noisepattern.java</file>
             <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/WEB-INF/applicationContext.xml</file>
             <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/images/CC_20200116_134233.png</file>
+            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/WEB-INF/jsp/login.jsp</file>
             <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/src/java/test/dbentities/Qsamples.java</file>
+            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/src/java/test/dbentities/Noisebydate.java</file>
             <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/vendor/bootstrap/css/bootstrap.css</file>
-            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/assets/css/main.css</file>
             <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/css/main.css</file>
             <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/src/java/noiseminions/miner/NoiseEstimator.java</file>
+            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/nbproject/build-impl.xml</file>
             <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/src/java/test/controllers/HelloController.java</file>
-            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/src/java/test/entities/noise.java</file>
             <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/src/conf/MANIFEST.MF</file>
             <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/images/img-01.png</file>
             <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/images/pic01.png</file>
             <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/src/java/noiseminions/miner/Database.java</file>
-            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/src/java/test/controllers/IndexController.java</file>
-            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/src/java/test/controllers/registeruserController.java</file>
+            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/css/util.css</file>
+            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/src/java/test/controllers/LoginController.java</file>
+            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/src/java/test/controllers/MapController.java</file>
             <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/WEB-INF/jsp/noiseinfo.jsp</file>
+            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/images/noiselevel1.jpg</file>
+            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/META-INF/context.xml</file>
             <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/WEB-INF/jsp/map.jsp</file>
+            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/WEB-INF/web.xml</file>
             <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/src/java/test/entities/LoginForm.java</file>
-            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/WEB-INF/jsp/register.jsp</file>
+            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/src/java/test/controllers/NoiseserviceController.java</file>
             <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/vendor/bootstrap/css/bootstrap.min.css</file>
-            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/WEB-INF/dispatcher-servlet.xml</file>
-            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/WEB-INF/jsp/login2.jsp</file>
         </group>
     </open-files>
 </project-private>

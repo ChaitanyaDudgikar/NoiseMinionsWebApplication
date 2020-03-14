@@ -151,16 +151,20 @@
 
                     let minlevel = 30;
                     let maxlevel = 60;
+                    let sum=0;
+                    let count=0;
                    // heatMapData.push({location: new google.maps.LatLng(18.18, 77.77), weight: 0});
                     //heatMapData.push({location: new google.maps.LatLng(18.20, 77.80), weight: 200});
                     for (let i of JSON.parse(data))
                     {
                         console.log("i", i, (i.noiselevel - minlevel) / (maxlevel - minlevel));
                         let weight = i.noiselevel;//Math.pow(10, i.noiselevel / 20.0);
+                        sum=sum+i.noiselevel;
+                        count=count+1;
                         console.log("weight", weight);
                         heatMapData.push({location: new google.maps.LatLng(i.latitudeNoise, i.longitudeNoise), weight: weight});
                     }
-
+                    console.log("final "+sum/count);
                     let zoom = map.getZoom();
                     console.log("zoom", zoom);
 
