@@ -34,7 +34,7 @@
                 <img style="vertical-align:middle"src="/images/stop.png" height="64" width="64">
                 <a style=" color:red;"> Be the part of SOLUTION, NOT the part of POLLUTION </a>
                 <img style="vertical-align:middle"src="/images/stop.png" height="64" width="64">
-                <a> The sound level of different areas in Solapur city : </a>
+                <a> The sound Noise of different areas in Solapur city : </a>
                </p>
 
             <p  style="height:64px; width:1920px; background:black  ; color:cyan; font-size:40px; text-align: center; margin-top: 0px; margin-bottom: 0px;">
@@ -73,7 +73,7 @@
                <img style="vertical-align:middle"src="/images/stop.png" height="64" width="64">
                 <a style=" color:red;"> Be the part of SOLUTION, NOT the part of POLLUTION </a>
                 <img style="vertical-align:middle"src="/images/stop.png" height="64" width="64">
-                <a> The sound level of different areas in Solapur city : </a>
+                <a> The Noise level of different areas in Solapur city : </a>
             </p>
 
             <p  style="height:64px; width:1920px; background:black  ; color:cyan; font-size:40px; text-align: center; margin-top:0px;">
