@@ -8,6 +8,7 @@
             <file>jar:file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/lib/spring-framework400/spring-web-4.0.1.RELEASE.jar!/META-INF/web-fragment.xml</file>
             <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/src/java/test/dbentities/UploadCommand.java</file>
             <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/images/img-02.png</file>
+            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/WEB-INF/jsp/about.jsp</file>
             <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/WEB-INF/jsp/xyz.jsp</file>
             <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/src/java/test/dbentities/Samples.java</file>
             <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/src/java/test/dbentities/Noisepattern.java</file>
@@ -34,6 +35,7 @@
             <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/WEB-INF/jsp/map.jsp</file>
             <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/WEB-INF/web.xml</file>
             <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/src/java/test/entities/LoginForm.java</file>
+            <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/WEB-INF/jsp/index.jsp</file>
             <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/src/java/test/controllers/NoiseserviceController.java</file>
             <file>file:/C:/Users/cdudg/OneDrive/Documents/NetBeansProjects/NoiseService-master/web/vendor/bootstrap/css/bootstrap.min.css</file>
         </group>
