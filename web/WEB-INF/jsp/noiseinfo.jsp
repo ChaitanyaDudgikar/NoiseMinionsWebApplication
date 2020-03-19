@@ -128,7 +128,7 @@
             }
             }
             showLiveData();
-            var myVar = setInterval(showLiveData, 600000);
+            var myVar = setInterval(showLiveData, 60000);
             function p_avg(data) {
                 let sum = 0;
                 let count = 0;
