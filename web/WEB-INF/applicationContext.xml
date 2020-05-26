@@ -16,7 +16,7 @@
 <bean id="dataSource"
     class="org.springframework.jdbc.datasource.DriverManagerDataSource"
     p:driverClassName="com.mysql.jdbc.Driver"
-    p:url="jdbc:mysql://13.58.40.245:3306/noise"
+    p:url="jdbc:mysql://18.216.171.43:3306/noise"
     p:username="noiseuser"
     p:password="D)r27P(n31A+v31C-a15H&amp;a31" />
 
