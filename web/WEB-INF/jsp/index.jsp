@@ -82,35 +82,35 @@
 					<div class="flex flex-5">
 						<div class="box person">
 							<div class="image round">
-								<img src="/images/img-02.png" alt="Person 1" />
+								<img src="/images/Arnav.jpeg" alt="Person 1" />
 							</div>
 							<h3>Arnav Deshpande</h3>
 							<p>Web Developer</p>
 						</div>
 						<div class="box person">
 							<div class="image round">
-								<img src="/images/img-02.png" alt="Person 2" />
+								<img src="/images/Chaitanya.jpeg" alt="Person 2" />
 							</div>
 							<h3>Chaitanya Dudgikar</h3>
 							<p>Android Developer</p>
 						</div>
 						<div class="box person">
 							<div class="image round">
-								<img src="/images/img-02.png" alt="Person 3" />
+								<img src="/images/Aute.jpg" alt="Person 3" />
 							</div>
 							<h3>Dnyaneshwar Aute</h3>
 							<p>Backend Developer</p>
 						</div>
 						<div class="box person">
 							<div class="image round">
-								<img src="/images/img-02.png" alt="Person 4" />
+								<img src="/images/Heena.jpg" alt="Person 4" />
 							</div>
 							<h3>Heena Mujawar</h3>
 							<p>Database Designer</p>
 						</div>
 						<div class="box person">
 							<div class="image round">
-								<img src="/images/img-02.png" alt="Person 4" />
+								<img src="/images/Pavan.jpg" alt="Person 4" />
 							</div>
 							<h3>Pavan Alli</h3>
 							<p>Software Tester</p>
