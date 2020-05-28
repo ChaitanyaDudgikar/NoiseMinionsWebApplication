@@ -113,7 +113,7 @@
 								<img src="/images/Pavan.jpg" alt="Person 4" />
 							</div>
 							<h3>Pavan Alli</h3>
-							<p>Software Tester</p>
+							<p>Data Analyst</p>
 						</div>
 					</div>
 				</div>
